@@ -1,0 +1,25 @@
+#!/bin/bash
+
+USER_MYSQL_HOST=${USER_MYSQL_HOST:-"127.0.0.1"}
+USER_MYSQL_PORT=${USER_MYSQL_PORT:-"3306"}
+USER_MYSQL_DATABASE=${USER_MYSQL_DATABASE:-"ssrpanel"}
+USER_MYSQL_USERNAME=${USER_MYSQL_USERNAME:-"ssrpanel"}
+USER_MYSQL_PASSWORD=${USER_MYSQL_PASSWORD:-"ssrpanel"}
+
+USER_REDIS_HOST=${USER_REDIS_HOST:-"127.0.0.1"}
+USER_REDIS_PORT=${USER_REDIS_PORT:-"6379"}
+USER_REDIS_PASSWORD=${USER_REDIS_PASSWORD:-"null"}
+
+sed -i "s#USER_MYSQL_HOST#${USER_MYSQL_HOST}#" ${SS_PANEL_DIR}/config/database.php
+sed -i "s#USER_MYSQL_PORT#${USER_MYSQL_PORT}#" ${SS_PANEL_DIR}/config/database.php
+sed -i "s#USER_MYSQL_DATABASE#${USER_MYSQL_DATABASE}#" ${SS_PANEL_DIR}/config/database.php
+sed -i "s#USER_MYSQL_USERNAME#${USER_MYSQL_USERNAME}#" ${SS_PANEL_DIR}/config/database.php
+sed -i "s#USER_MYSQL_PASSWORD#${USER_MYSQL_PASSWORD}#" ${SS_PANEL_DIR}/config/database.php
+
+sed -i "s#USER_REDIS_HOST#${USER_REDIS_HOST}#" ${SS_PANEL_DIR}/config/database.php
+sed -i "s#USER_REDIS_PORT#${USER_REDIS_PORT}#" ${SS_PANEL_DIR}/config/database.php
+sed -i "s#USER_REDIS_PASSWORD#${USER_REDIS_PASSWORD}#" ${SS_PANEL_DIR}/config/database.php
+
+
+#调用FROM中的启动文件
+exec /start.sh
