@@ -7,7 +7,7 @@ services:
     network_mode: "host"
     volumes:
       - ./usermysql.json:/usr/local/ssrr/usermysql.json
-    command: python /usr/local/ssrr/server.py
+    command: sh
     logging:
       options:
         max-size: "10m"
