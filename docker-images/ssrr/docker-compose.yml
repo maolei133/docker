@@ -7,7 +7,7 @@ services:
     network_mode: "host"
     volumes:
       - ./usermysql.json:/usr/local/ssrr/usermysql.json
-    command: /usr/local/ssrr/run.sh
+    command: run.sh
     logging:
       options:
         max-size: "10m"
