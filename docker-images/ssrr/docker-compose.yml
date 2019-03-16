@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+ ssrmu:
+    build: ./
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./usermysql.json:/usr/local/ssrr/usermysql.json
+    command: python /usr/local/ssrr/server.py
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
