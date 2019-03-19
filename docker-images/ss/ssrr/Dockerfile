@@ -15,5 +15,7 @@ RUN curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-instal
 
 ENV PATH="/root/.pyenv/bin:\$PATH" \
 	PYTHON_VERSION=3.7.2
+	
+RUN pyenv install 3.7.2 && pyenv global 3.7.2
 
 CMD ["python3"]
