@@ -8,8 +8,8 @@ WORKDIR ${WORK}
 
 RUN apk update \
 	&& apk upgrade \
-	&& apk add --no-cache curl wget bash \
-	git libffi-dev ncurses-dev openssl-dev readline-dev tk-dev xz-dev zlib-dev linux-headers \
+	&& apk add --no-cache curl wget \
+	git bash build-base libffi-dev linux-headers \
 	&& rm -rf /var/cache/apk/*
 
 RUN curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
