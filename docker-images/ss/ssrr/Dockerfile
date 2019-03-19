@@ -15,7 +15,8 @@ RUN curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-instal
 
 RUN echo 'export PATH="/root/.pyenv/bin:\$PATH"' >> ~/.bashrc && \
     echo 'eval "\$(pyenv init -)"' >> ~/.bashrc && \
-	echo 'eval "\$(pyenv virtualenv-init -)"' >> ~/.bashrc
+	echo 'eval "\$(pyenv virtualenv-init -)"' >> ~/.bashrc && \
+	source ~/.bashrc
 	
 RUN pyenv install 3.7.2 && pyenv global 3.7.2
 
