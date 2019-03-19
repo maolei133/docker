@@ -1,13 +1,13 @@
 version: '3'
 
 services:
- ssrmu:
+ ssrr:
     build: ./
     restart: always
     network_mode: "host"
     volumes:
       - ./usermysql.json:/usr/local/ssrr/usermysql.json
-    command: python3
+    command: nohup python3.6 server.py m>> /dev/null 2>&1 &
     logging:
       options:
         max-size: "10m"
