@@ -17,9 +17,5 @@ RUN echo 'export PATH="/root/.pyenv/bin:\$PATH"' >> ~/.bashrc && \
     echo 'eval "\$(pyenv init -)"' >> ~/.bashrc && \
 	echo 'eval "\$(pyenv virtualenv-init -)"' >> ~/.bashrc
 	
-SHELL ["/bin/bash","-ic"] 
-RUN source ~/.bashrc
-	
-RUN pyenv install 3.7.2 && pyenv global 3.7.2
 
 CMD ["python3"]
