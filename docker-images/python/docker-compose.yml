@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+ maolei/python-pyenv:
+    build: ./base
+ maolei/python-pyenv:3.7.2:
+    build: ./3.7.2
+    depends_on:
+        - maolei/python-pyenv
