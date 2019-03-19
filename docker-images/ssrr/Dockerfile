@@ -11,6 +11,8 @@ RUN wget https://github.com/ssrpanel/shadowsocksr/archive/master.zip -P /tmp \
 RUN apk add -U --no-cache gcc build-base linux-headers ca-certificates python3 python3-dev libffi-dev libressl-dev \
 	&& pip install -r requestment.txt
 	
-RUN chmod +x server.py
+RUN apk --update add coreutils
+
+RUN chmod 777 server.py
 
 CMD ["python3"]
