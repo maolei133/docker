@@ -1,19 +1,17 @@
-FROM python:3.6-alpine
+FROM alpine
 
-ENV WORK=/usr/local/ss
+ENV PYTHON_VERSION 3.7.2
+
+ENV WORK /usr/local/ss
 
 WORKDIR ${WORK}
 
 RUN apk update \
 	&& apk upgrade \
-	&& apk add --no-cache wget \
-	libffi-dev ncurses-dev openssl-dev readline-dev tk-dev xz-dev zlib-dev linux-headers \
+	&& apk add --no-cache curl wget bash \
+	git libffi-dev ncurses-dev openssl-dev readline-dev tk-dev xz-dev zlib-dev linux-headers \
 	&& rm -rf /var/cache/apk/*
 
-RUN wget https://github.com/ssrpanel/shadowsocksr/archive/master.zip -P /tmp \
-	&& unzip /tmp/master -d /tmp \
-	&& mv /tmp/shadowsocksr-master/* ./ \
-	&& pip install -r requestment.txt \
-	&& rm -rf /tmp
-	
+RUN curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
 CMD ["python3"]
