@@ -16,12 +16,4 @@ RUN curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-instal
 
 ENV PATH /root/.pyenv/bin:\$PATH
 
-RUN pyenv install 3.7.2 && pyenv global 3.7.2
-
-RUN wget https://github.com/ssrpanel/shadowsocksr/archive/master.zip -P /tmp \
-	&& unzip /tmp/master -d /tmp \
-	&& mv /tmp/shadowsocksr-master/* ./ \
-	&& pip install -r requestment.txt \
-	&& rm -rf /tmp
-
 CMD ["python3"]
