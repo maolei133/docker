@@ -14,7 +14,12 @@ RUN apk update \
 
 RUN curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
-ENV PATH /root/.pyenv/bin:\$PATH
+RUN 'cat >> ~/.bashrc << EOF
+export PATH="/root/.pyenv/bin:\$PATH"
+eval "\$(pyenv init -)"
+eval "\$(pyenv virtualenv-init -)"
+EOF
+source ~/.bashrc'
 
 RUN pyenv install $PYTHON_VERSION && pyenv global $PYTHON_VERSION
 
