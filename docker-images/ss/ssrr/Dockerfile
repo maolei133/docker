@@ -16,7 +16,7 @@ RUN curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-instal
 
 ENV PATH /root/.pyenv/bin:\$PATH
 
-RUN pyenv install ${PYTHON_VERSION} && pyenv global ${PYTHON_VERSION}
+RUN pyenv install $PYTHON_VERSION && pyenv global $PYTHON_VERSION
 
 RUN wget https://github.com/ssrpanel/shadowsocksr/archive/master.zip -P /tmp \
 	&& unzip /tmp/master -d /tmp \
