@@ -1,8 +1,9 @@
 FROM alpine
 
-ENV WORK /usr/local/ss
+WORKDIR /usr/local/ss
 
-WORKDIR ${WORK}
+ENV PYENV_ROOT /root/.pyenv
+ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
 
 RUN apk update \
 	&& apk upgrade \
@@ -13,9 +14,6 @@ RUN apk update \
 
 RUN curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
-RUN echo 'export PATH="/root/.pyenv/bin:\$PATH"' >> ~/.bashrc && \
-    echo 'eval "\$(pyenv init -)"' >> ~/.bashrc && \
-	echo 'eval "\$(pyenv virtualenv-init -)"' >> ~/.bashrc
-	
+RUN pyenv install 3.7.2 && pyenv global 3.7.2
 
 CMD ["python3"]
