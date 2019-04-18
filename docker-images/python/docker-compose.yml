@@ -1,11 +1,11 @@
 version: '3'
 services:
     python-pyenv:
-        image: "maolei/python-pyenv:base"
+        image: "maolei133/python-pyenv:base"
         build: 
             context: ./base
     python-pyenv-3.7.2:
-        image: "maolei/python-pyenv"
+        image: "maolei133/python-pyenv"
         build: 
             context: ./3.7.2
         depends_on:

@@ -1,0 +1,18 @@
+version: '3'
+services:
+    python-pyenv-base:
+        image: "maolei133/python-pyenv:base"
+        build: 
+            context: ./python/base
+    python-pyenv:
+        image: "maolei133/python-pyenv"
+        build: 
+            context: ./python/3.7.2
+        depends_on:
+            - python-pyenv-base
+    ssrr:
+        image: "maolei133/ss:ssrr"
+        build: 
+            context: ./ss/ssrr
+        depends_on:
+            - python-pyenv
