@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  ss:
+    image: maolei/ss
+    restart: always
+    network_mode: "host"
+    environment:
+      DB_NODEID: 1
+      DB_HOST: 107.182.16.104
+      DB_PORT: 3306
+      DB_DATABASE: "db_ssrpanel480"
+      DB_USERNAME: "ssrpanel"
+      DB_PASSWORD: "ssrpanel"
+    tty: true
+    
